@@ -1,0 +1,277 @@
+{
+  "packId": "seniors",
+  "packVersion": "1.0.0",
+  "title": "Prompt Quest: Seniors",
+  "description": "Five practical missions: plan a family gathering with AI, check a health tip, protect yourself from scams, edit a letter honestly, and know when to call a real person instead.",
+  "author": "Prompt Quest Team",
+  "emoji": "🧓",
+  "audienceLabel": "Adults & older adults",
+  "theme": { "primary": "#0891b2", "secondary": "#14b8a6" },
+  "missions": [
+    {
+      "id": "family-reunion",
+      "type": "prompt-builder",
+      "title": "Mission 1: Plan a Family Reunion",
+      "badge": "Prompt Builder",
+      "briefing": "Write a prompt that gives the AI what it actually needs to draft a genuinely useful plan.",
+      "scenario": "Your family is having a reunion this year, and you offered to get AI's help planning it.",
+      "placeholder": "Write the prompt you'd send to the AI...",
+      "requiredElements": [
+        {
+          "key": "goal",
+          "label": "The purpose of the gathering",
+          "hint": "Is it a reunion, an anniversary, a milestone birthday?",
+          "points": 20,
+          "category": "clarity",
+          "keywords": ["reunion", "anniversary", "celebrat", "gathering", "milestone", "birthday"]
+        },
+        {
+          "key": "audience",
+          "label": "Who's attending",
+          "hint": "How many people, what ages, any special needs?",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["family", "grandchild", "grandkids", "relatives", "guests", "people", "attendees", "ages"]
+        },
+        {
+          "key": "budget",
+          "label": "A budget",
+          "hint": "How much is available to spend?",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["budget", "$", "dollar", "spend", "cost"]
+        },
+        {
+          "key": "date",
+          "label": "A date or season",
+          "hint": "When is the gathering?",
+          "points": 10,
+          "category": "clarity",
+          "keywords": ["date", "summer", "fall", "autumn", "winter", "spring", "weekend", "month", "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
+        },
+        {
+          "key": "location",
+          "label": "A location",
+          "hint": "A backyard, a hall, a restaurant, a park?",
+          "points": 10,
+          "category": "clarity",
+          "keywords": ["location", "venue", "backyard", "park", "hall", "restaurant", "house", "home", "hotel"]
+        },
+        {
+          "key": "constraints",
+          "label": "Constraints",
+          "hint": "Dietary needs, accessibility (wheelchair access, seating), travel distance...",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["allerg", "dietary", "wheelchair", "accessib", "limit", "can't", "cannot", "distance", "no more than"]
+        },
+        {
+          "key": "format",
+          "label": "A requested format",
+          "hint": "Ask for an itinerary, a checklist, a schedule...",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["itinerary", "checklist", "schedule", "list", "timeline", "table", "format"]
+        }
+      ]
+    },
+    {
+      "id": "check-the-health-tip",
+      "type": "claim-audit",
+      "title": "Mission 2: Check the Health Tip",
+      "badge": "Fact Checker",
+      "briefing": "AI can sound very confident even when it's making something up. Flag anything you'd want to double-check with your doctor before trusting it. (This is a literacy exercise, not medical advice.)",
+      "scenario": "You asked an AI assistant for general tips about staying active.",
+      "aiResponseIntro": "Here's what the AI said:",
+      "claims": [
+        {
+          "id": "h1",
+          "text": "Regular walking can be a simple way to stay active as you age.",
+          "supported": true,
+          "points": 20,
+          "category": "accuracy",
+          "explanation": "This is general, widely-supported wellness advice."
+        },
+        {
+          "id": "h2",
+          "text": "A 2021 Stanford study found that walking exactly 3,000 steps a day cures arthritis within two weeks.",
+          "supported": false,
+          "points": 40,
+          "category": "accuracy",
+          "explanation": "A suspiciously specific, uncited \"study\" claiming a cure is a classic sign of a fabricated claim. Always verify specific medical claims with a real doctor, not an AI chat answer."
+        },
+        {
+          "id": "h3",
+          "text": "It's a good idea to talk with your doctor before starting a new exercise routine.",
+          "supported": true,
+          "points": 20,
+          "category": "accuracy",
+          "explanation": "Sensible general advice — not a specific factual claim that needs a citation."
+        },
+        {
+          "id": "h4",
+          "text": "Staying hydrated and stretching can help reduce muscle soreness.",
+          "supported": true,
+          "points": 20,
+          "category": "accuracy",
+          "explanation": "A general, reasonable wellness tip."
+        }
+      ]
+    },
+    {
+      "id": "protect-from-scams",
+      "type": "classify",
+      "title": "Mission 3: Protect Yourself from Scams",
+      "badge": "Privacy Protector",
+      "briefing": "Before you share information with an AI tool — or anyone who contacts you online or by phone — decide what's actually safe to give out.",
+      "scenario": "Scammers count on people sharing sensitive information quickly, without stopping to think.",
+      "bucketA": { "key": "share", "label": "Safe to share" },
+      "bucketB": { "key": "never", "label": "Never share" },
+      "items": [
+        {
+          "id": "sc1",
+          "label": "A favorite family recipe",
+          "correctBucket": "share",
+          "points": 15,
+          "category": "safety",
+          "explanation": "Harmless to share."
+        },
+        {
+          "id": "sc2",
+          "label": "Your bank account number",
+          "correctBucket": "never",
+          "points": 20,
+          "category": "safety",
+          "explanation": "Never share financial account numbers with anyone who asks unexpectedly, including an AI tool."
+        },
+        {
+          "id": "sc3",
+          "label": "A photo from a public community event",
+          "correctBucket": "share",
+          "points": 15,
+          "category": "safety",
+          "explanation": "Public event photos are generally low-risk to share."
+        },
+        {
+          "id": "sc4",
+          "label": "Your Social Security number",
+          "correctBucket": "never",
+          "points": 20,
+          "category": "safety",
+          "explanation": "Extremely sensitive — never share it, especially not with an AI chatbot or in response to an unsolicited request."
+        },
+        {
+          "id": "sc5",
+          "label": "The general city or town you live in",
+          "correctBucket": "share",
+          "points": 15,
+          "category": "safety",
+          "explanation": "Low-risk general location information."
+        },
+        {
+          "id": "sc6",
+          "label": "A one-time verification code someone asked you to read aloud over the phone",
+          "correctBucket": "never",
+          "points": 15,
+          "category": "safety",
+          "explanation": "This is a classic scam tactic. Verification codes should never be shared with anyone who calls or messages asking for them — even if they claim to be your bank."
+        }
+      ]
+    },
+    {
+      "id": "polish-my-letter",
+      "type": "claim-audit",
+      "title": "Mission 4: Polish My Letter to the Editor",
+      "badge": "Bias Detective",
+      "briefing": "Compare the AI's \"polished\" version to what you actually wrote, and flag anything it invented.",
+      "scenario": "Original sentence you wrote: \"I've lived in this town for 20 years and I love what the new park has done for our neighborhood.\"",
+      "aiResponseIntro": "The AI's \"polished\" version says:",
+      "claims": [
+        {
+          "id": "l1",
+          "text": "As a 20-year resident, I've seen firsthand the positive impact the new park has had on our neighborhood.",
+          "supported": true,
+          "points": 25,
+          "category": "judgment",
+          "explanation": "A fair, honest rephrasing of what you actually wrote — fine to keep."
+        },
+        {
+          "id": "l2",
+          "text": "Having served on the town council for the past decade, I can say this park is one of our finest achievements.",
+          "supported": false,
+          "points": 50,
+          "category": "judgment",
+          "explanation": "You never mentioned serving on the town council. The AI invented a civic role you didn't hold — publishing this would be dishonest."
+        },
+        {
+          "id": "l3",
+          "text": "The park has become a wonderful gathering place for neighbors.",
+          "supported": true,
+          "points": 25,
+          "category": "judgment",
+          "explanation": "A reasonable, non-specific observation consistent with what you actually said."
+        }
+      ]
+    },
+    {
+      "id": "trust-ai-or-call",
+      "type": "classify",
+      "title": "Mission 5: Trust AI or Call a Real Person?",
+      "badge": "AI Team Lead",
+      "briefing": "AI can be genuinely useful — and it can also be exactly what a scammer hopes you'll trust. Sort each situation.",
+      "scenario": "Knowing when to stop and call a real person is one of the most valuable skills for using AI safely.",
+      "bucketA": { "key": "ai-ok", "label": "Fine to ask AI" },
+      "bucketB": { "key": "call-real-person", "label": "Call a real person instead" },
+      "items": [
+        {
+          "id": "r1",
+          "label": "Getting a new recipe idea for dinner",
+          "correctBucket": "ai-ok",
+          "points": 15,
+          "category": "judgment",
+          "explanation": "Low-stakes and a good fit for AI."
+        },
+        {
+          "id": "r2",
+          "label": "Someone claiming to be your bank asks you to \"verify\" your password in a chat window",
+          "correctBucket": "call-real-person",
+          "points": 20,
+          "category": "judgment",
+          "explanation": "This is a scam pattern. Close the chat and call your bank directly using a number you already know and trust."
+        },
+        {
+          "id": "r3",
+          "label": "Getting help writing a heartfelt birthday card message",
+          "correctBucket": "ai-ok",
+          "points": 15,
+          "category": "judgment",
+          "explanation": "Creative writing help is a great fit for AI."
+        },
+        {
+          "id": "r4",
+          "label": "A pop-up message says your computer has a virus and to call a phone number immediately",
+          "correctBucket": "call-real-person",
+          "points": 20,
+          "category": "judgment",
+          "explanation": "A classic tech-support scam. Don't call the number — contact a trusted family member or your device's real manufacturer instead."
+        },
+        {
+          "id": "r5",
+          "label": "Getting a plain-language summary of a long insurance letter",
+          "correctBucket": "ai-ok",
+          "points": 15,
+          "category": "judgment",
+          "explanation": "Useful for general understanding — just verify important details with the provider directly."
+        },
+        {
+          "id": "r6",
+          "label": "Deciding on a medical treatment plan",
+          "correctBucket": "call-real-person",
+          "points": 15,
+          "category": "judgment",
+          "explanation": "Medical decisions need your actual doctor, not an AI chat."
+        }
+      ]
+    }
+  ]
+}

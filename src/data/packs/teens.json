@@ -1,0 +1,285 @@
+{
+  "packId": "teens",
+  "packVersion": "1.0.0",
+  "title": "Prompt Quest: Teens & Students",
+  "description": "School-life missions: plan an event with AI, catch hallucinations, protect your privacy, edit ethically, and know when not to rely on AI.",
+  "author": "Prompt Quest Team",
+  "emoji": "🎓",
+  "audienceLabel": "Ages 12-18",
+  "theme": { "primary": "#7c3aed", "secondary": "#06b6d4" },
+  "missions": [
+    {
+      "id": "school-event",
+      "type": "prompt-builder",
+      "title": "Mission 1: Plan a School Event",
+      "badge": "Prompt Builder",
+      "briefing": "Your student council wants an AI-generated plan for an upcoming school event. Write a prompt that would get you a genuinely useful plan back — not generic filler.",
+      "scenario": "You're on the student council. The council needs a plan drafted for an event, and you've been asked to use AI to get a first draft.",
+      "placeholder": "Write the prompt you'd send to the AI...",
+      "requiredElements": [
+        {
+          "key": "goal",
+          "label": "A clear goal or purpose",
+          "hint": "What is the event actually for? (e.g. \"raise money for the library\", \"celebrate the end of the semester\")",
+          "points": 20,
+          "category": "clarity",
+          "keywords": ["goal", "purpose", "objective", "raise", "celebrate", "so that", "in order to", "to help", "to raise awareness", "fundraiser"]
+        },
+        {
+          "key": "audience",
+          "label": "The audience",
+          "hint": "Who is this event for? (grade level, students, parents, staff...)",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["student", "grade", "parent", "teacher", "staff", "audience", "kids", "middle school", "high school", "elementary", "attendees", "families"]
+        },
+        {
+          "key": "budget",
+          "label": "A budget",
+          "hint": "How much money is available to spend?",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["budget", "$", "cost", "spend", "dollar", "funds", "money"]
+        },
+        {
+          "key": "date",
+          "label": "A date or timeframe",
+          "hint": "When is the event, or how much time do you have to plan it?",
+          "points": 10,
+          "category": "clarity",
+          "keywords": ["date", "day", "week", "month", "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december", "monday", "tuesday", "wednesday", "thursday", "friday", "weekend", "deadline"]
+        },
+        {
+          "key": "location",
+          "label": "A location",
+          "hint": "Where will it be held? (gym, cafeteria, park, online...)",
+          "points": 10,
+          "category": "clarity",
+          "keywords": ["location", "venue", "gym", "auditorium", "cafeteria", "held at", "outdoor", "indoor", "online", "classroom", "park", "athletic field", "the library", "in the courtyard"]
+        },
+        {
+          "key": "constraints",
+          "label": "Constraints or limits",
+          "hint": "Any rules the plan must respect? (no outside food, must end by 6pm, ADA accessible...)",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["constraint", "limit", "can't", "cannot", "must not", "no more than", "restrict", "only", "rule", "policy", "must be", "accessible", "must end", "curfew"]
+        },
+        {
+          "key": "format",
+          "label": "A requested output format",
+          "hint": "Ask for a specific structure — a timeline, a bulleted checklist, a table...",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["format", "bullet", "list", "table", "schedule", "timeline", "outline", "structure", "step-by-step", "steps", "checklist", "numbered", "in the form of", "as a"]
+        }
+      ]
+    },
+    {
+      "id": "hallucination-hunt",
+      "type": "claim-audit",
+      "title": "Mission 2: Detect Hallucinations",
+      "badge": "Fact Checker",
+      "briefing": "You asked an AI assistant for advice on running a school bake sale. Read its answer closely — one claim in here is made up. Select every claim you would want to verify before trusting it.",
+      "scenario": "The AI's answer sounds confident and well-organized. That doesn't mean every sentence in it is true.",
+      "aiResponseIntro": "Here's what the AI said:",
+      "claims": [
+        {
+          "id": "c1",
+          "text": "Bake sales are a classic way for school clubs to raise money for field trips and supplies.",
+          "supported": true,
+          "points": 10,
+          "category": "accuracy",
+          "explanation": "This is a well-known, general fact — no special verification needed."
+        },
+        {
+          "id": "c2",
+          "text": "According to a 2019 National PTA study, school bake sales increase student club participation by exactly 47%.",
+          "supported": false,
+          "points": 30,
+          "category": "accuracy",
+          "explanation": "This is an oddly specific statistic attributed to a named study with no citation given. That's a classic sign of a fabricated claim — it should be verified against a real source before you repeat it."
+        },
+        {
+          "id": "c3",
+          "text": "It's a good idea to check your school's food safety and allergy policies before selling homemade baked goods.",
+          "supported": true,
+          "points": 10,
+          "category": "accuracy",
+          "explanation": "This is standard, sensible advice and not a factual claim that needs a citation."
+        },
+        {
+          "id": "c4",
+          "text": "Pricing items between $1 and $3 is a common approach for school bake sales.",
+          "supported": true,
+          "points": 10,
+          "category": "accuracy",
+          "explanation": "This is a reasonable, general observation, not a specific unverifiable statistic."
+        }
+      ]
+    },
+    {
+      "id": "privacy-check",
+      "type": "classify",
+      "title": "Mission 3: Protect Private Information",
+      "badge": "Privacy Protector",
+      "briefing": "You're about to paste some background information into an AI chatbot to get help with a task. Sort each detail into the right bucket before you hit send.",
+      "scenario": "Not everything you know about yourself or others is safe to hand to a third-party AI tool.",
+      "bucketA": { "key": "share", "label": "Safe to include" },
+      "bucketB": { "key": "withhold", "label": "Keep private" },
+      "items": [
+        {
+          "id": "p1",
+          "label": "Your full legal name",
+          "correctBucket": "withhold",
+          "points": 20,
+          "category": "safety",
+          "explanation": "Full names aren't always sensitive, but there's rarely a reason an AI assistant needs your legal name to help with a task — leave it out by default."
+        },
+        {
+          "id": "p2",
+          "label": "An account password",
+          "correctBucket": "withhold",
+          "points": 20,
+          "category": "safety",
+          "explanation": "Never share passwords or credentials with any AI tool, ever."
+        },
+        {
+          "id": "p3",
+          "label": "Details from a medical record",
+          "correctBucket": "withhold",
+          "points": 20,
+          "category": "safety",
+          "explanation": "Medical information is highly sensitive. Describe symptoms or questions in general terms instead of pasting records."
+        },
+        {
+          "id": "p4",
+          "label": "A general age range (e.g. \"in my 30s\")",
+          "correctBucket": "share",
+          "points": 20,
+          "category": "safety",
+          "explanation": "A general age range is usually low-risk and can help the AI tailor its answer."
+        },
+        {
+          "id": "p5",
+          "label": "A public description of your school project",
+          "correctBucket": "share",
+          "points": 20,
+          "category": "safety",
+          "explanation": "Information that's already public or meant to be shared is generally safe to include."
+        }
+      ]
+    },
+    {
+      "id": "ethical-editor",
+      "type": "claim-audit",
+      "title": "Mission 4: Improve Writing Ethically",
+      "badge": "Bias Detective",
+      "briefing": "You asked an AI to polish a resume bullet point. Compare the AI's \"improved\" version to what you actually did, and flag anything it invented.",
+      "scenario": "Original bullet you wrote: \"Helped organize the school food drive and made some flyers.\"",
+      "aiResponseIntro": "The AI's \"polished\" version says:",
+      "claims": [
+        {
+          "id": "e1",
+          "text": "Co-organized the school food drive, contributing to its overall success.",
+          "supported": true,
+          "points": 15,
+          "category": "judgment",
+          "explanation": "This is a fair, honest rephrasing of what you actually did — fine to keep."
+        },
+        {
+          "id": "e2",
+          "text": "Led a team of 12 volunteers to design and distribute promotional flyers.",
+          "supported": false,
+          "points": 35,
+          "category": "judgment",
+          "explanation": "You never mentioned leading a team of 12 — the AI invented a specific, impressive-sounding detail. Accepting this would mean claiming credit for something that isn't true."
+        },
+        {
+          "id": "e3",
+          "text": "Increased food drive donations by 30% compared to the previous year.",
+          "supported": false,
+          "points": 35,
+          "category": "judgment",
+          "explanation": "There's no source for this statistic anywhere in your original bullet. This is a fabricated accomplishment — including it on a resume would be dishonest."
+        },
+        {
+          "id": "e4",
+          "text": "Created flyers to promote the event.",
+          "supported": true,
+          "points": 15,
+          "category": "judgment",
+          "explanation": "This matches what you actually said you did."
+        }
+      ]
+    },
+    {
+      "id": "tool-choice",
+      "type": "classify",
+      "title": "Mission 5: Choose the Right Tool",
+      "badge": "AI Team Lead",
+      "briefing": "AI is a great tool for some jobs and a bad fit for others. Sort each situation into the right bucket.",
+      "scenario": "Good judgment means knowing when AI helps — and when it doesn't belong in the decision at all.",
+      "bucketA": { "key": "good-fit", "label": "Good use of AI" },
+      "bucketB": { "key": "avoid", "label": "Don't rely on AI here" },
+      "items": [
+        {
+          "id": "t1",
+          "label": "Brainstorming ideas for a birthday party theme",
+          "correctBucket": "good-fit",
+          "points": 15,
+          "category": "judgment",
+          "explanation": "Low-stakes creative brainstorming is a strong use case for AI."
+        },
+        {
+          "id": "t2",
+          "label": "Summarizing a long article you don't have time to read in full",
+          "correctBucket": "good-fit",
+          "points": 15,
+          "category": "judgment",
+          "explanation": "Summarization is a strength of AI assistants — just verify anything critical before acting on it."
+        },
+        {
+          "id": "t3",
+          "label": "Deciding what to do during a medical emergency",
+          "correctBucket": "avoid",
+          "points": 15,
+          "category": "judgment",
+          "explanation": "Emergencies need real emergency services, not an AI chat window. Call for help."
+        },
+        {
+          "id": "t4",
+          "label": "Getting a definitive legal answer for an active court case",
+          "correctBucket": "avoid",
+          "points": 15,
+          "category": "judgment",
+          "explanation": "Legal advice for a real case needs a licensed attorney who knows the specifics and jurisdiction."
+        },
+        {
+          "id": "t5",
+          "label": "Getting a first draft of a poem or short story",
+          "correctBucket": "good-fit",
+          "points": 15,
+          "category": "judgment",
+          "explanation": "Creative first drafts are a good, low-stakes use of AI."
+        },
+        {
+          "id": "t6",
+          "label": "Checking what happened in the news in the last hour",
+          "correctBucket": "avoid",
+          "points": 12,
+          "category": "judgment",
+          "explanation": "AI models don't have live, up-to-the-minute information by default — use a real news source."
+        },
+        {
+          "id": "t7",
+          "label": "Sharing a friend's home address so AI can \"help plan a route\"",
+          "correctBucket": "avoid",
+          "points": 13,
+          "category": "judgment",
+          "explanation": "That's someone else's personal data — sharing it without their consent is a privacy problem, not just a judgment call about AI."
+        }
+      ]
+    }
+  ]
+}

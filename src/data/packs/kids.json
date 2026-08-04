@@ -1,0 +1,269 @@
+{
+  "packId": "kids",
+  "packVersion": "1.0.0",
+  "title": "Prompt Quest: Explorers",
+  "description": "Five fun missions for young AI explorers: plan a birthday party, spot a silly mistake, keep secrets secret, tell the truth, and know when to ask a grown-up.",
+  "author": "Prompt Quest Team",
+  "emoji": "🧒",
+  "audienceLabel": "Ages 7-11",
+  "theme": { "primary": "#f97316", "secondary": "#fbbf24" },
+  "missions": [
+    {
+      "id": "birthday-party",
+      "type": "prompt-builder",
+      "title": "Mission 1: Plan a Birthday Party",
+      "badge": "Prompt Builder",
+      "briefing": "Write a prompt to help AI plan your birthday party. The more details you give, the better the plan will be!",
+      "scenario": "It's almost your birthday, and you want AI to help you plan an awesome party.",
+      "placeholder": "Write your prompt here...",
+      "requiredElements": [
+        {
+          "key": "goal",
+          "label": "What you're celebrating",
+          "hint": "Tell the AI it's your birthday, or what the party is for.",
+          "points": 20,
+          "category": "clarity",
+          "keywords": ["birthday", "celebrat", "party for", "turning"]
+        },
+        {
+          "key": "audience",
+          "label": "Who's invited",
+          "hint": "How many friends or family, and what ages?",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["friend", "invite", "guest", "cousin", "classmate", "kids", "people", "family"]
+        },
+        {
+          "key": "budget",
+          "label": "How much you can spend",
+          "hint": "Ask about a budget, like \"$30\" or \"my allowance\".",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["budget", "$", "dollar", "spend", "money", "allowance"]
+        },
+        {
+          "key": "date",
+          "label": "When the party is",
+          "hint": "Give a date or day, like \"next Saturday\".",
+          "points": 10,
+          "category": "clarity",
+          "keywords": ["date", "saturday", "sunday", "weekend", "monday", "tuesday", "wednesday", "thursday", "friday", "next month", "next week"]
+        },
+        {
+          "key": "location",
+          "label": "Where the party will be",
+          "hint": "Backyard? A park? A bowling alley?",
+          "points": 10,
+          "category": "clarity",
+          "keywords": ["backyard", "park", "house", "home", "pool", "bowling", "arcade", "venue", "location"]
+        },
+        {
+          "key": "constraints",
+          "label": "Any rules or limits",
+          "hint": "Allergies? A time limit? No sugar after a certain time?",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["allerg", "no more than", "limit", "can't", "cannot", "rule", "only", "time limit", "before", "after"]
+        },
+        {
+          "key": "format",
+          "label": "How you want the plan organized",
+          "hint": "Ask for a checklist, a schedule, or a list.",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["list", "schedule", "checklist", "step", "bullet", "table", "timeline", "format"]
+        }
+      ]
+    },
+    {
+      "id": "silly-mistake",
+      "type": "claim-audit",
+      "title": "Mission 2: Spot the Silly Mistake",
+      "badge": "Fact Checker",
+      "briefing": "AI can sound really sure about something and still be wrong. Read closely and flag anything you'd want to double-check.",
+      "scenario": "You asked an AI about dinosaurs for a school report.",
+      "aiResponseIntro": "Here's what the AI said:",
+      "claims": [
+        {
+          "id": "k1",
+          "text": "Dinosaurs lived millions of years ago, long before humans existed.",
+          "supported": true,
+          "points": 20,
+          "category": "accuracy",
+          "explanation": "This is a well-known fact that doesn't need special checking."
+        },
+        {
+          "id": "k2",
+          "text": "A Tyrannosaurus Rex could run as fast as a car on the highway, reaching 65 miles per hour.",
+          "supported": false,
+          "points": 40,
+          "category": "accuracy",
+          "explanation": "This is a made-up, super-specific number. Scientists actually think T-Rex ran much slower — this is exactly the kind of confident-sounding claim you should double-check."
+        },
+        {
+          "id": "k3",
+          "text": "Some dinosaurs, like Triceratops, had big horns that may have helped them defend themselves.",
+          "supported": true,
+          "points": 20,
+          "category": "accuracy",
+          "explanation": "This is a reasonable, well-known fact about dinosaurs."
+        },
+        {
+          "id": "k4",
+          "text": "Scientists believe birds are living relatives of dinosaurs.",
+          "supported": true,
+          "points": 20,
+          "category": "accuracy",
+          "explanation": "This is a real, widely-taught scientific idea, not a made-up claim."
+        }
+      ]
+    },
+    {
+      "id": "secret-or-share",
+      "type": "classify",
+      "title": "Mission 3: Keep It Secret or Share It",
+      "badge": "Privacy Protector",
+      "briefing": "Before you tell an AI chatbot something, decide: is this safe to share, or should you keep it secret?",
+      "scenario": "Not everything about you is safe to type into a chatbot.",
+      "bucketA": { "key": "share", "label": "OK to share" },
+      "bucketB": { "key": "private", "label": "Keep it secret" },
+      "items": [
+        {
+          "id": "s1",
+          "label": "Your favorite color",
+          "correctBucket": "share",
+          "points": 20,
+          "category": "safety",
+          "explanation": "Totally harmless to share!"
+        },
+        {
+          "id": "s2",
+          "label": "Your home address",
+          "correctBucket": "private",
+          "points": 20,
+          "category": "safety",
+          "explanation": "Where you live is personal information that should stay private."
+        },
+        {
+          "id": "s3",
+          "label": "The password to your game account",
+          "correctBucket": "private",
+          "points": 20,
+          "category": "safety",
+          "explanation": "Passwords are always secret — never type them into a chatbot, even to \"get help\"."
+        },
+        {
+          "id": "s4",
+          "label": "A book report you wrote for school",
+          "correctBucket": "share",
+          "points": 20,
+          "category": "safety",
+          "explanation": "Your schoolwork is fine to share when you're asking for feedback or help."
+        },
+        {
+          "id": "s5",
+          "label": "A grown-up's credit card number",
+          "correctBucket": "private",
+          "points": 20,
+          "category": "safety",
+          "explanation": "Money information should never be shared with anyone online, including AI."
+        }
+      ]
+    },
+    {
+      "id": "make-my-story-better",
+      "type": "claim-audit",
+      "title": "Mission 4: Make My Story Better",
+      "badge": "Bias Detective",
+      "briefing": "Compare the AI's \"better\" version to what actually happened, and flag anything it made up.",
+      "scenario": "Original sentence you wrote: \"I drew a picture of a dragon for art class.\"",
+      "aiResponseIntro": "The AI's \"better\" version says:",
+      "claims": [
+        {
+          "id": "m1",
+          "text": "Drew a dragon for art class using bold, creative details.",
+          "supported": true,
+          "points": 25,
+          "category": "judgment",
+          "explanation": "This is just a more colorful way to describe what you actually did — fine to keep."
+        },
+        {
+          "id": "m2",
+          "text": "Won first place in the school art contest with the drawing.",
+          "supported": false,
+          "points": 50,
+          "category": "judgment",
+          "explanation": "You never said you entered a contest, let alone won one! The AI made this up — saying it happened would not be telling the truth."
+        },
+        {
+          "id": "m3",
+          "text": "Created an imaginative dragon drawing for art class.",
+          "supported": true,
+          "points": 25,
+          "category": "judgment",
+          "explanation": "This matches what you actually did — a fair rewording, not a new claim."
+        }
+      ]
+    },
+    {
+      "id": "ask-ai-or-grownup",
+      "type": "classify",
+      "title": "Mission 5: Ask AI or Ask a Grown-Up?",
+      "badge": "AI Team Lead",
+      "briefing": "AI is great for some things, but for others you need a real person. Sort each situation.",
+      "scenario": "Knowing when NOT to use AI is just as important as knowing how to use it.",
+      "bucketA": { "key": "ai-ok", "label": "Ask AI" },
+      "bucketB": { "key": "ask-grownup", "label": "Ask a grown-up" },
+      "items": [
+        {
+          "id": "g1",
+          "label": "Coming up with ideas for a Halloween costume",
+          "correctBucket": "ai-ok",
+          "points": 15,
+          "category": "judgment",
+          "explanation": "Fun, low-stakes brainstorming is a great use of AI."
+        },
+        {
+          "id": "g2",
+          "label": "You fell down and hurt your arm",
+          "correctBucket": "ask-grownup",
+          "points": 20,
+          "category": "judgment",
+          "explanation": "Getting hurt means you need a real person to help right away — go find a grown-up."
+        },
+        {
+          "id": "g3",
+          "label": "Getting help spelling a hard word for homework",
+          "correctBucket": "ai-ok",
+          "points": 15,
+          "category": "judgment",
+          "explanation": "Everyday homework help is a good, safe use of AI."
+        },
+        {
+          "id": "g4",
+          "label": "A stranger online asks where you live",
+          "correctBucket": "ask-grownup",
+          "points": 20,
+          "category": "judgment",
+          "explanation": "Always tell a trusted grown-up right away if a stranger online asks for personal information."
+        },
+        {
+          "id": "g5",
+          "label": "Writing a make-believe story about talking animals",
+          "correctBucket": "ai-ok",
+          "points": 15,
+          "category": "judgment",
+          "explanation": "Creative writing help is a great use of AI."
+        },
+        {
+          "id": "g6",
+          "label": "Deciding if it's OK to meet up with someone you only know from online",
+          "correctBucket": "ask-grownup",
+          "points": 15,
+          "category": "judgment",
+          "explanation": "Safety decisions like this always need a trusted grown-up, every time."
+        }
+      ]
+    }
+  ]
+}

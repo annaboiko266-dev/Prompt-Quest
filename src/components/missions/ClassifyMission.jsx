@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { useGame } from "../../context/GameContext";
+import { IconCheck, IconX } from "../icons";
+import InfoNote from "../InfoNote";
+import Celebration from "../Celebration";
+import AnimatedNumber from "../AnimatedNumber";
+import { useCelebration } from "../../hooks/useCelebration";
 
 export default function ClassifyMission({ mission }) {
   const { submitMissionAnswer, setScreen } = useGame();
   const [assignments, setAssignments] = useState({});
   const [result, setResult] = useState(null);
+  const celebrating = useCelebration(result);
 
   const allAssigned = mission.items.every((item) => assignments[item.id]);
 
@@ -23,7 +29,9 @@ export default function ClassifyMission({ mission }) {
 
   return (
     <div>
+      <Celebration active={celebrating} />
       <h2>{mission.title}</h2>
+      <InfoNote>{mission.learningGoal}</InfoNote>
       <p className="scenario">{mission.scenario}</p>
       <p>{mission.briefing}</p>
 
@@ -53,7 +61,7 @@ export default function ClassifyMission({ mission }) {
               </div>
               {reviewed && (
                 <div className="claim-feedback">
-                  {reviewed.correct ? "✅" : "❌"} {reviewed.explanation}
+                  {reviewed.correct ? <IconCheck /> : <IconX />} {reviewed.explanation}
                 </div>
               )}
             </li>
@@ -68,7 +76,7 @@ export default function ClassifyMission({ mission }) {
       ) : (
         <>
           <div className="score-summary">
-            Score: <strong>{result.points}</strong> / {result.maxPoints}
+            Score: <strong><AnimatedNumber value={result.points} /></strong> / {result.maxPoints}
           </div>
           <div className="mission-actions">
             {result.points < result.maxPoints && (

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useGame } from "../context/GameContext";
 import PackLoader from "./PackLoader";
+import { IconAward } from "./icons";
+import AnimatedNumber from "./AnimatedNumber";
 
 export default function MissionHub() {
   const { pack, missionResults, setMissionIndex, setScreen, totalScore, maxTotalScore, badges } =
@@ -20,7 +22,7 @@ export default function MissionHub() {
       <div className="hub-header">
         <h2>{pack.title}</h2>
         <span className="score-chip">
-          {totalScore} / {maxTotalScore} pts
+          <AnimatedNumber value={totalScore} /> / {maxTotalScore} pts
         </span>
       </div>
       <p className="pack-desc">{pack.description}</p>
@@ -52,7 +54,7 @@ export default function MissionHub() {
           <div className="badge-row">
             {badges.map((b) => (
               <span key={b.id} className="badge-pill" title={b.description}>
-                🏅 {b.label}
+                <IconAward size={14} /> {b.label}
               </span>
             ))}
           </div>

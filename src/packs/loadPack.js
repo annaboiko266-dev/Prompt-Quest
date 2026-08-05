@@ -2,8 +2,9 @@ import { validatePack } from "./schema";
 import kids from "../data/packs/kids.json";
 import teens from "../data/packs/teens.json";
 import seniors from "../data/packs/seniors.json";
+import alaska from "../data/packs/alaska.json";
 
-export const BUILTIN_PACKS = [kids, teens, seniors];
+export const BUILTIN_PACKS = [kids, teens, seniors, alaska];
 
 export function getBuiltinPack(packId) {
   return BUILTIN_PACKS.find((p) => p.packId === packId) || BUILTIN_PACKS[0];

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useGame } from "../context/GameContext";
+import { TrackIcon } from "./icons";
 
 const EXPERIENCE_LEVELS = ["Never used AI", "Used it a little", "Use it regularly", "Power user"];
 const DIFFICULTIES = ["gentle", "standard", "challenge"];
@@ -23,8 +24,9 @@ export default function ProfileSetup() {
       <button className="link-button back-link" onClick={() => setScreen("home")}>
         ← Choose a different track
       </button>
-      <div className="track-chip" style={{ "--track-color": pack.theme?.primary || "#7c3aed" }}>
-        {pack.emoji} {pack.title}
+      <div className="track-chip" style={{ "--track-color": pack.theme?.primary || "#3b82f6" }}>
+        <TrackIcon name={pack.icon} size={16} />
+        {pack.title}
       </div>
       <h2>Before we start</h2>
       <p>

@@ -1,6 +1,7 @@
 import { useGame } from "../context/GameContext";
 import ScoreBar from "./ScoreBar";
 import BadgeList from "./BadgeList";
+import { IconAward } from "./icons";
 
 function ratingFor(pct) {
   if (pct >= 90) return "AI Literacy: Expert";
@@ -38,7 +39,7 @@ export default function Certificate() {
             <div className="certificate-badges">
               {badges.map((b) => (
                 <span key={b.id} className="badge-pill">
-                  🏅 {b.label}
+                  <IconAward size={14} /> {b.label}
                 </span>
               ))}
             </div>

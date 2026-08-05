@@ -34,6 +34,12 @@ export default function PackLoader({ onDone }) {
         Prompt Quest is open source — anyone can author a new set of missions as a JSON
         file and share it. See <code>docs/MISSION_PACK_SCHEMA.md</code> in the repo.
       </p>
+      <p className="coming-soon">
+        <span className="coming-soon-chip">Coming soon</span> a community gallery where
+        you can publish your pack here and others can play it instantly, no GitHub
+        required. For now, packs are shared by contributing them to the repo (see{" "}
+        <code>CONTRIBUTING.md</code>) or by loading the file below.
+      </p>
 
       <div className="builtin-packs">
         {BUILTIN_PACKS.map((p) => (

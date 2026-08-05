@@ -20,16 +20,18 @@ a player writes. See [Design notes](#design-notes) below.
 
 ## Tracks
 
-The platform currently ships three built-in mission packs (tracks), each
-covering the same five-mission arc with age-appropriate scenarios:
+The platform currently ships four built-in mission packs (tracks). The first
+three cover the same five-mission arc with age-appropriate scenarios; the
+fourth swaps age for a place-based angle:
 
 | Track | Audience | Missions |
 |---|---|---|
-| 🧒 Explorers | Ages 7–11 | Plan a birthday party · Spot the silly mistake · Keep it secret or share it · Make my story better · Ask AI or ask a grown-up? |
-| 🎓 Teens & Students | Ages 12–18 | Plan a school event · Detect hallucinations · Protect private information · Improve writing ethically · Choose the right tool |
-| 🧓 Seniors | Adults & older adults | Plan a family reunion · Check the health tip · Protect yourself from scams · Polish my letter to the editor · Trust AI or call a real person? |
+| Explorers | Ages 7–11 | Plan a birthday party · Spot the silly mistake · Keep it secret or share it · Make my story better · Ask AI or ask a grown-up? |
+| Teens & Students | Ages 12–18 | Plan a school event · Detect hallucinations · Protect private information · Improve writing ethically · Choose the right tool |
+| Everyday AI | Adults & older adults | Plan a family reunion · Check the health tip · Protect yourself from scams · Polish my letter to the editor · Shop smarter with AI · Trust AI or call a real person? |
+| Alaska | For Alaska residents | Plan for winter · Check the bear safety tip · Protect your info · Polish my community newsletter blurb · Trust AI or call a local? |
 
-Anyone can write a fourth track (or replace these) as a single JSON file — see
+Anyone can write a fifth track (or replace these) as a single JSON file — see
 [docs/MISSION_PACK_SCHEMA.md](docs/MISSION_PACK_SCHEMA.md). No code changes
 required, and the in-app "Load a different mission pack" panel accepts a
 pasted or uploaded JSON file directly for trying one out before contributing it.

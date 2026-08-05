@@ -1,0 +1,283 @@
+{
+  "packId": "alaska",
+  "packVersion": "1.0.0",
+  "title": "Prompt Quest: Alaska",
+  "description": "Five missions for Alaska life: winter prep, verifying bear safety advice, protecting your info, honest community writing, and knowing when to call a local instead of asking AI.",
+  "author": "Prompt Quest Team",
+  "icon": "compass",
+  "audienceLabel": "For Alaska residents",
+  "theme": { "primary": "#1d4ed8", "secondary": "#38bdf8" },
+  "ambientEffect": ["snow", "aurora"],
+  "missions": [
+    {
+      "id": "plan-for-winter",
+      "type": "prompt-builder",
+      "title": "Mission 1: Plan for Winter",
+      "badge": "Prompt Builder",
+      "learningGoal": "Skill: Clarity. Alaska winters look completely different in Fairbanks than in Juneau or a village off the road system. This mission teaches you to specify your actual region, household, and constraints so the AI's plan is useful instead of generic.",
+      "briefing": "Write a prompt that gives the AI what it needs to draft a genuinely useful winter-readiness plan for your specific situation.",
+      "scenario": "Winter is coming and you want AI's help getting your home and family ready — but Alaska winters aren't one-size-fits-all.",
+      "placeholder": "Write the prompt you'd send to the AI...",
+      "requiredElements": [
+        {
+          "key": "goal",
+          "label": "A clear goal",
+          "hint": "What are you actually preparing for? (a power outage, freeze-up, winterizing the car...)",
+          "points": 20,
+          "category": "clarity",
+          "keywords": ["winterize", "prepare", "get ready", "power outage", "freeze-up", "freeze up", "ready for winter", "readiness"]
+        },
+        {
+          "key": "household",
+          "label": "Who it's for",
+          "hint": "Just you? A family? Pets, an elderly relative, roommates?",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["family", "household", "kids", "pets", "elderly", "roommate", "just me", "we have", "my wife", "my husband", "my kids"]
+        },
+        {
+          "key": "region",
+          "label": "Your region",
+          "hint": "Interior, coastal, off the road system, a specific town — prep looks very different across Alaska.",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["fairbanks", "anchorage", "interior", "coastal", "bush", "rural", "off the road system", "juneau", "southeast", "arctic", "village", "kodiak", "wasilla", "sitka"]
+        },
+        {
+          "key": "budget",
+          "label": "A budget",
+          "hint": "How much can you spend on this?",
+          "points": 10,
+          "category": "clarity",
+          "keywords": ["budget", "$", "spend", "afford", "dollar", "cost"]
+        },
+        {
+          "key": "timeframe",
+          "label": "A timeframe",
+          "hint": "By when? Before freeze-up, in the next few weeks...",
+          "points": 10,
+          "category": "clarity",
+          "keywords": ["by october", "before freeze", "next month", "weeks", "deadline", "by winter", "before it snows", "this week", "by november"]
+        },
+        {
+          "key": "constraints",
+          "label": "Constraints",
+          "hint": "No generator? Fixed income? Off-grid? Say so.",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["no generator", "fixed income", "can't afford", "limited", "off-grid", "only have", "don't have", "no access to"]
+        },
+        {
+          "key": "format",
+          "label": "A requested format",
+          "hint": "Ask for a checklist, a schedule, a step-by-step plan...",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["checklist", "list", "step-by-step", "schedule", "table", "timeline", "bullet", "steps"]
+        }
+      ]
+    },
+    {
+      "id": "bear-safety-check",
+      "type": "claim-audit",
+      "title": "Mission 2: Check the Bear Safety Tip",
+      "badge": "Fact Checker",
+      "learningGoal": "Skill: Accuracy. Bear safety information that sounds confident can still be wrong — and here, wrong advice isn't just embarrassing, it can be dangerous. This mission trains you to verify specific safety claims against official guidance (like ADF&G) before trusting or repeating them.",
+      "briefing": "You asked an AI assistant whether you should carry bear spray near your home and how to use it. Read closely — one piece of this advice is a real, documented myth that officials specifically warn against. Flag anything you'd want to verify before trusting it.",
+      "scenario": "Confident-sounding safety advice still needs to be checked against a real source, especially when it's about something with real risk.",
+      "aiResponseIntro": "Here's what the AI said:",
+      "claims": [
+        {
+          "id": "b1",
+          "text": "The Alaska Department of Fish and Game recommends carrying bear spray as a first line of defense when hiking or working in bear country.",
+          "supported": true,
+          "points": 20,
+          "category": "accuracy",
+          "explanation": "This matches real, official guidance — bear spray is widely recommended by wildlife agencies as an effective deterrent."
+        },
+        {
+          "id": "b2",
+          "text": "For extra protection, you should spray a light coating of bear spray on your tent and gear before setting up camp.",
+          "supported": false,
+          "points": 40,
+          "category": "accuracy",
+          "explanation": "This is a real, documented myth — and a dangerous one. The residue can act like a scent that draws bears in rather than repelling them. Official sources explicitly warn against spraying gear or tents with bear spray."
+        },
+        {
+          "id": "b3",
+          "text": "Bear spray should be carried somewhere quickly accessible, like a hip or chest holster, rather than packed away in a bag.",
+          "supported": true,
+          "points": 20,
+          "category": "accuracy",
+          "explanation": "This is accurate — in an encounter you may only have seconds, so accessibility matters."
+        },
+        {
+          "id": "b4",
+          "text": "Bear spray is 100% effective and completely eliminates the risk of an attack.",
+          "supported": false,
+          "points": 20,
+          "category": "accuracy",
+          "explanation": "This is an overstated, absolute claim. Real guidance is that bear spray significantly reduces risk — it's not a guarantee, and behavior like making noise and avoiding surprising a bear still matters."
+        }
+      ]
+    },
+    {
+      "id": "protect-your-info",
+      "type": "classify",
+      "title": "Mission 3: Protect Your Info",
+      "badge": "Privacy Protector",
+      "learningGoal": "Skill: Safety. Living remotely or dealing with state programs like the PFD means you're regularly asked for real identifying information. This mission teaches you to recognize which details are fine in an AI prompt and which — IDs, PINs, the exact location of an unattended property — should never go in one.",
+      "briefing": "Before you paste some background into an AI chatbot, decide what's actually safe to include.",
+      "scenario": "Not everything about your life in Alaska is safe to hand to a third-party AI tool.",
+      "bucketA": { "key": "share", "label": "Safe to share" },
+      "bucketB": { "key": "private", "label": "Keep private" },
+      "items": [
+        {
+          "id": "i1",
+          "label": "The general area or town you live near (e.g. \"near Fairbanks\")",
+          "correctBucket": "share",
+          "points": 20,
+          "category": "safety",
+          "explanation": "A general area is low-risk and can help the AI tailor its answer."
+        },
+        {
+          "id": "i2",
+          "label": "Your Alaska driver's license number",
+          "correctBucket": "private",
+          "points": 20,
+          "category": "safety",
+          "explanation": "A government ID number should never be shared with an AI tool."
+        },
+        {
+          "id": "i3",
+          "label": "The exact GPS coordinates of your remote cabin",
+          "correctBucket": "private",
+          "points": 20,
+          "category": "safety",
+          "explanation": "A precise location for an often-unattended, remote property is a real safety risk if it ends up somewhere you don't control."
+        },
+        {
+          "id": "i4",
+          "label": "Your PFD application PIN",
+          "correctBucket": "private",
+          "points": 20,
+          "category": "safety",
+          "explanation": "This is a credential. Treat it like a password — never share it, including with an AI assistant."
+        },
+        {
+          "id": "i5",
+          "label": "A description of a public community potluck you're organizing",
+          "correctBucket": "share",
+          "points": 20,
+          "category": "safety",
+          "explanation": "Information that's meant to be public is generally safe to include."
+        }
+      ]
+    },
+    {
+      "id": "polish-my-newsletter",
+      "type": "claim-audit",
+      "title": "Mission 4: Polish My Community Newsletter Blurb",
+      "badge": "Bias Detective",
+      "learningGoal": "Skill: Judgment. AI \"polish\" can quietly invent partnerships or numbers that were never true. This mission teaches you to check every claim in an AI-edited draft against what actually happened before you post it for your community to see.",
+      "briefing": "Compare the AI's \"polished\" version to what you actually wrote, and flag anything it invented.",
+      "scenario": "Original sentence you wrote: \"I helped organize our neighborhood's winter potluck last month.\"",
+      "aiResponseIntro": "The AI's \"polished\" version says:",
+      "claims": [
+        {
+          "id": "n1",
+          "text": "Helped organize and coordinate our neighborhood's winter potluck gathering last month.",
+          "supported": true,
+          "points": 15,
+          "category": "judgment",
+          "explanation": "A fair, honest rephrasing of what you actually wrote — fine to keep."
+        },
+        {
+          "id": "n2",
+          "text": "Partnered with the borough's emergency management office to help plan the event.",
+          "supported": false,
+          "points": 35,
+          "category": "judgment",
+          "explanation": "You never mentioned any such partnership. The AI invented an official-sounding credential — including it would misrepresent what actually happened."
+        },
+        {
+          "id": "n3",
+          "text": "Drew a record turnout of over 150 residents, the largest in the neighborhood's history.",
+          "supported": false,
+          "points": 35,
+          "category": "judgment",
+          "explanation": "There's no source for this specific, impressive-sounding statistic anywhere in your original sentence. This is a fabricated detail."
+        },
+        {
+          "id": "n4",
+          "text": "Brought neighbors together during one of the coldest stretches of the season.",
+          "supported": true,
+          "points": 15,
+          "category": "judgment",
+          "explanation": "A reasonable, non-specific observation consistent with what you actually said."
+        }
+      ]
+    },
+    {
+      "id": "trust-ai-or-call-local",
+      "type": "classify",
+      "title": "Mission 5: Trust AI or Call a Local?",
+      "badge": "AI Team Lead",
+      "learningGoal": "Skill: Judgment. Some Alaska situations look like a quick question but are actually time-sensitive or safety-critical — road conditions, weather, wildlife encounters. This mission teaches you to recognize when the right move is to check a real, current, local source instead of asking AI.",
+      "briefing": "AI is a great tool for some things and a bad fit for others — especially anything time-sensitive or safety-critical. Sort each situation.",
+      "scenario": "Conditions in Alaska can change by the hour. AI's general knowledge doesn't know what's happening right now.",
+      "bucketA": { "key": "ai-ok", "label": "Fine to ask AI" },
+      "bucketB": { "key": "call-local", "label": "Check a local/official source" },
+      "items": [
+        {
+          "id": "t1",
+          "label": "Getting a recipe idea for moose or salmon you just harvested",
+          "correctBucket": "ai-ok",
+          "points": 15,
+          "category": "judgment",
+          "explanation": "Low-stakes and a good fit for AI."
+        },
+        {
+          "id": "t2",
+          "label": "Checking current road conditions before a winter drive",
+          "correctBucket": "call-local",
+          "points": 20,
+          "category": "judgment",
+          "explanation": "Conditions change by the hour — check 511 Alaska or DOT&PF directly, not an AI's general knowledge."
+        },
+        {
+          "id": "t3",
+          "label": "A bear is right outside your cabin right now",
+          "correctBucket": "call-local",
+          "points": 20,
+          "category": "judgment",
+          "explanation": "A real-time safety emergency needs Fish and Game or local authorities immediately, not a chat window."
+        },
+        {
+          "id": "t4",
+          "label": "Brainstorming a fundraiser idea for the community center",
+          "correctBucket": "ai-ok",
+          "points": 15,
+          "category": "judgment",
+          "explanation": "Creative, low-stakes brainstorming is a good use of AI."
+        },
+        {
+          "id": "t5",
+          "label": "Deciding if it's safe to fly or boat out today given the weather",
+          "correctBucket": "call-local",
+          "points": 15,
+          "category": "judgment",
+          "explanation": "Check official aviation/marine forecasts and local pilots or operators — conditions can turn dangerous fast, and AI won't know today's actual weather."
+        },
+        {
+          "id": "t6",
+          "label": "Getting help writing a thank-you note to a neighbor",
+          "correctBucket": "ai-ok",
+          "points": 15,
+          "category": "judgment",
+          "explanation": "Creative writing help is a great, low-stakes use of AI."
+        }
+      ]
+    }
+  ]
+}

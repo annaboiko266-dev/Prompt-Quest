@@ -1,4 +1,5 @@
 import { packBadgeDefs } from "../engine/badges";
+import { IconAward, IconLock } from "./icons";
 
 export default function BadgeList({ pack, earnedBadges }) {
   const earnedIds = new Set(earnedBadges.map((b) => b.id));
@@ -10,7 +11,7 @@ export default function BadgeList({ pack, earnedBadges }) {
         const earned = earnedIds.has(b.id);
         return (
           <div key={b.id} className={`badge-card ${earned ? "badge-earned" : "badge-locked"}`}>
-            <div className="badge-icon">{earned ? "🏅" : "🔒"}</div>
+            <div className="badge-icon">{earned ? <IconAward size={26} /> : <IconLock size={26} />}</div>
             <div className="badge-name">{b.label}</div>
             <div className="badge-desc">{b.description}</div>
           </div>

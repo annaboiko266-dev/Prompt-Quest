@@ -1,10 +1,10 @@
 {
   "packId": "seniors",
   "packVersion": "1.0.0",
-  "title": "Prompt Quest: Seniors",
-  "description": "Five practical missions: plan a family gathering with AI, check a health tip, protect yourself from scams, edit a letter honestly, and know when to call a real person instead.",
+  "title": "Prompt Quest: Everyday AI",
+  "description": "Six practical missions: plan a family gathering with AI, check a health tip, protect yourself from scams, edit a letter honestly, shop smarter with AI filters, and know when to call a real person instead.",
   "author": "Prompt Quest Team",
-  "emoji": "🧓",
+  "icon": "shield",
   "audienceLabel": "Adults & older adults",
   "theme": { "primary": "#0891b2", "secondary": "#14b8a6" },
   "missions": [
@@ -13,6 +13,7 @@
       "type": "prompt-builder",
       "title": "Mission 1: Plan a Family Reunion",
       "badge": "Prompt Builder",
+      "learningGoal": "Skill: Clarity. A one-line request gets a one-size-fits-all answer. This mission teaches you to give the AI a real goal, audience, budget, and constraints so the plan it drafts is actually usable.",
       "briefing": "Write a prompt that gives the AI what it actually needs to draft a genuinely useful plan.",
       "scenario": "Your family is having a reunion this year, and you offered to get AI's help planning it.",
       "placeholder": "Write the prompt you'd send to the AI...",
@@ -80,6 +81,7 @@
       "type": "claim-audit",
       "title": "Mission 2: Check the Health Tip",
       "badge": "Fact Checker",
+      "learningGoal": "Skill: Accuracy. AI can state a specific-sounding \"fact\" — a study, a statistic, a cure — with total confidence and no source. This mission trains you to catch that pattern and verify anything that matters before you trust it.",
       "briefing": "AI can sound very confident even when it's making something up. Flag anything you'd want to double-check with your doctor before trusting it. (This is a literacy exercise, not medical advice.)",
       "scenario": "You asked an AI assistant for general tips about staying active.",
       "aiResponseIntro": "Here's what the AI said:",
@@ -123,6 +125,7 @@
       "type": "classify",
       "title": "Mission 3: Protect Yourself from Scams",
       "badge": "Privacy Protector",
+      "learningGoal": "Skill: Safety. Scammers count on you sharing sensitive information fast, without thinking. This mission teaches you to recognize which details — account numbers, verification codes — should never be shared, with anyone, under any pressure.",
       "briefing": "Before you share information with an AI tool — or anyone who contacts you online or by phone — decide what's actually safe to give out.",
       "scenario": "Scammers count on people sharing sensitive information quickly, without stopping to think.",
       "bucketA": { "key": "share", "label": "Safe to share" },
@@ -183,6 +186,7 @@
       "type": "claim-audit",
       "title": "Mission 4: Polish My Letter to the Editor",
       "badge": "Bias Detective",
+      "learningGoal": "Skill: Judgment. An AI \"polishing\" your writing can quietly invent credentials or claims you never made. This mission teaches you to check every sentence of an AI-edited draft against what you actually wrote before you publish it.",
       "briefing": "Compare the AI's \"polished\" version to what you actually wrote, and flag anything it invented.",
       "scenario": "Original sentence you wrote: \"I've lived in this town for 20 years and I love what the new park has done for our neighborhood.\"",
       "aiResponseIntro": "The AI's \"polished\" version says:",
@@ -214,10 +218,79 @@
       ]
     },
     {
+      "id": "smart-shopping",
+      "type": "prompt-builder",
+      "title": "Mission 5: Shop Smarter with AI",
+      "badge": "Prompt Builder",
+      "learningGoal": "Skill: Clarity. Shopping filters are only as good as what you tell them to filter on. This mission teaches you to give an AI shopping assistant your actual constraints — budget, must-haves, deal-breakers, deadline — so it narrows down to genuinely relevant picks instead of a generic, overwhelming list.",
+      "briefing": "Write a prompt that gives the AI enough to actually filter well. The vaguer your prompt, the more generic — and less useful — the results.",
+      "scenario": "You need to buy a laptop, and you want an AI shopping assistant to help you find good options.",
+      "placeholder": "Write the prompt you'd send to the AI shopping assistant...",
+      "requiredElements": [
+        {
+          "key": "useCase",
+          "label": "What you'll use it for",
+          "hint": "Schoolwork? Gaming? Video editing? This changes what actually matters.",
+          "points": 20,
+          "category": "clarity",
+          "keywords": ["school", "work", "gaming", "video editing", "college", "programming", "coding", "everyday use", "browsing", "office", "student", "for class"]
+        },
+        {
+          "key": "budget",
+          "label": "A budget or price range",
+          "hint": "A specific number or range, not just \"affordable\".",
+          "points": 20,
+          "category": "clarity",
+          "keywords": ["budget", "$", "price range", "under", "spend", "afford", "dollar", "cost"]
+        },
+        {
+          "key": "mustHaves",
+          "label": "Must-have features",
+          "hint": "Screen size, storage, battery life, weight — the things that are non-negotiable.",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["storage", "battery", "screen size", "ram", "memory", "lightweight", "portable", "must have", "need at least", "gb", "inch"]
+        },
+        {
+          "key": "brandQuality",
+          "label": "Brand or quality preferences",
+          "hint": "A preferred brand, or a quality bar like \"highly rated\" or \"4+ stars\".",
+          "points": 10,
+          "category": "clarity",
+          "keywords": ["brand", "rated", "reviews", "stars", "reputable", "prefer", "avoid"]
+        },
+        {
+          "key": "exclusions",
+          "label": "What to rule out",
+          "hint": "Anything you specifically don't want — refurbished, too heavy, a certain brand, etc.",
+          "points": 15,
+          "category": "clarity",
+          "keywords": ["not refurbished", "new only", "don't want", "avoid", "no ", "exclude", "rule out"]
+        },
+        {
+          "key": "timeline",
+          "label": "When you need it by",
+          "hint": "A deadline helps the AI prioritize what's actually available in time.",
+          "points": 10,
+          "category": "clarity",
+          "keywords": ["by ", "need it by", "before ", "deadline", "asap", "this week", "next week", "in time for"]
+        },
+        {
+          "key": "format",
+          "label": "How you want results shown",
+          "hint": "Ask for a comparison table, a ranked list, top 3 picks...",
+          "points": 10,
+          "category": "clarity",
+          "keywords": ["table", "compare", "comparison", "top 3", "ranked", "list", "pros and cons", "side by side"]
+        }
+      ]
+    },
+    {
       "id": "trust-ai-or-call",
       "type": "classify",
-      "title": "Mission 5: Trust AI or Call a Real Person?",
+      "title": "Mission 6: Trust AI or Call a Real Person?",
       "badge": "AI Team Lead",
+      "learningGoal": "Skill: Judgment. Some situations that look like a normal AI chat are actually scams in disguise. This mission teaches you to recognize when the right move is to stop and call a real person you trust instead.",
       "briefing": "AI can be genuinely useful — and it can also be exactly what a scammer hopes you'll trust. Sort each situation.",
       "scenario": "Knowing when to stop and call a real person is one of the most valuable skills for using AI safely.",
       "bucketA": { "key": "ai-ok", "label": "Fine to ask AI" },

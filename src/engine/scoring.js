@@ -48,24 +48,18 @@ export function scorePromptBuilder(mission, promptText) {
 
 // Generates a templated "AI response" whose quality visibly reflects which
 // checklist elements the player's prompt included. No API call, no cost, no latency.
+// Driven entirely by each element's own label — never assumes specific key names,
+// since pack authors choose their own keys (see docs/MISSION_PACK_SCHEMA.md).
 function buildMockPlanResponse(mission, found, missing) {
-  const foundKeys = new Set(found.map((el) => el.key));
   const lines = [];
 
-  if (foundKeys.has("goal")) {
-    lines.push("Here's a plan built around your stated goal.");
+  if (found.length === 0) {
+    lines.push("Here's a generic response — you didn't give me much to work with, so I'm guessing.");
   } else {
-    lines.push("Here's a generic event plan (you didn't tell me the goal, so I'm guessing).");
-  }
-  if (foundKeys.has("audience")) lines.push("- Tailored for the audience you described.");
-  if (foundKeys.has("budget")) lines.push("- Kept within the budget you gave me.");
-  if (foundKeys.has("date")) lines.push("- Scheduled around the date/timeframe you gave me.");
-  if (foundKeys.has("location")) lines.push("- Set at the location you specified.");
-  if (foundKeys.has("constraints")) lines.push("- Respecting the constraints you listed.");
-  if (foundKeys.has("format")) {
-    lines.push("- Delivered in the format you requested.");
-  } else {
-    lines.push("- Delivered as a generic paragraph, since you didn't ask for a specific format.");
+    lines.push("Here's a response built around what you told me:");
+    for (const el of found) {
+      lines.push(`- Accounts for ${el.label.toLowerCase()}.`);
+    }
   }
 
   if (missing.length > 0) {
@@ -74,7 +68,7 @@ function buildMockPlanResponse(mission, found, missing) {
       `(A more detailed prompt — especially including ${missing
         .slice(0, 2)
         .map((m) => m.label.toLowerCase())
-        .join(" and ")} — would get you a much more useful plan.)`
+        .join(" and ")} — would get you a much more useful result.)`
     );
   }
 

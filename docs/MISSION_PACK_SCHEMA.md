@@ -1,7 +1,7 @@
 # Mission pack schema
 
 A **mission pack** is a single JSON file describing a five-ish-mission "track" —
-like the built-in Explorers (kids), Teens & Students, or Seniors packs. Anyone can
+like the built-in Explorers (kids), Teens & Students, Everyday AI, or Alaska packs. Anyone can
 write one and load it from the "Load a different mission pack" link in the mission
 hub, without touching any code.
 
@@ -19,24 +19,46 @@ model or execute code, which is what makes packs safe to load from a file.
   "title": "Prompt Quest: My Pack",
   "description": "One sentence describing the track.",
   "author": "Your name",
-  "emoji": "🚀",
+  "icon": "rocket",
   "audienceLabel": "Who this track is for",
-  "theme": { "primary": "#7c3aed", "secondary": "#06b6d4" },
+  "theme": { "primary": "#3b82f6", "secondary": "#0ea5e9" },
+  "ambientEffect": "snow",
   "missions": [ /* 1 or more mission objects, see below */ ]
 }
 ```
 
-`packId` must be unique among loaded packs. `emoji`, `audienceLabel`, and `theme`
-are optional display metadata used on the track-select cards; everything else is
+`packId` must be unique among loaded packs. `icon`, `audienceLabel`, `theme`, and
+`ambientEffect` are optional display metadata used on the track-select cards and
+throughout the track; everything else is
 required.
 
+`icon` must be one of a fixed set of names rendered by
+[`src/components/icons.jsx`](../src/components/icons.jsx): `rocket`,
+`graduationCap`, `shield`, `compass`, or `sparkles` (unrecognized names fall back
+to `compass`). This is deliberate — packs are data, not code, and a fixed icon
+registry means a pack can never inject arbitrary SVG/markup. There are no emoji
+in the UI; if you want a new icon, add it to `icons.jsx` in your PR rather than
+requesting a free-text icon field.
+
+`ambientEffect` works the same way — it's a name, not markup, matched against a
+small registry in `App.jsx` (currently just `"snow"`, used by the Alaska pack).
+Leave it unset for no ambient effect. New effects follow the same PR pattern as
+new icons: add the component, register the name, don't accept arbitrary code
+from a pack.
+
 Every mission needs `id` (unique within the pack), `title`, and `type`. `type`
-must be one of the three supported mission types below. A mission may also set
-`badge` — a display label (e.g. `"Fact Checker"`) shown on the hub, certificate,
-and badge gallery once the player scores at least 80% on that mission. Badge
-labels are matched by exact text, so reusing a label across packs (like
-`"AI Team Lead"`) is intentional if you want the same badge concept to appear in
-multiple tracks.
+must be one of the three supported mission types below. A mission may also set:
+
+- `badge` — a display label (e.g. `"Fact Checker"`) shown on the hub, certificate,
+  and badge gallery once the player scores at least 80% on that mission. Badge
+  labels are matched by exact text, so reusing a label across packs (like
+  `"AI Team Lead"`) is intentional if you want the same badge concept to appear
+  in multiple tracks.
+- `learningGoal` — one or two sentences explaining what skill the mission
+  actually teaches and why, e.g. *"Skill: Accuracy. AI answers can sound
+  polished while containing a made-up statistic..."*. Shown to the player behind
+  a "What this teaches" toggle at the top of the mission. Optional, but strongly
+  recommended — it's what turns a mission from "a puzzle" into "a lesson."
 
 ## Mission type: `prompt-builder`
 
@@ -57,6 +79,7 @@ keyword match, not real language understanding, so:
   "type": "prompt-builder",
   "title": "Mission title",
   "badge": "Prompt Builder",
+  "learningGoal": "Skill: Clarity. Explain what this mission teaches and why it matters.",
   "briefing": "Instructions shown to the player.",
   "scenario": "Flavor text shown above the briefing.",
   "placeholder": "Textarea placeholder.",

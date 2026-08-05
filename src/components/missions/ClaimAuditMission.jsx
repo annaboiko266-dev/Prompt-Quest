@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { useGame } from "../../context/GameContext";
+import { IconCheck, IconX } from "../icons";
+import InfoNote from "../InfoNote";
+import Celebration from "../Celebration";
+import AnimatedNumber from "../AnimatedNumber";
+import { useCelebration } from "../../hooks/useCelebration";
 
 export default function ClaimAuditMission({ mission }) {
   const { submitMissionAnswer, setScreen } = useGame();
   const [flagged, setFlagged] = useState(new Set());
   const [result, setResult] = useState(null);
+  const celebrating = useCelebration(result);
 
   function toggle(claimId) {
     setFlagged((prev) => {
@@ -29,7 +35,9 @@ export default function ClaimAuditMission({ mission }) {
 
   return (
     <div>
+      <Celebration active={celebrating} />
       <h2>{mission.title}</h2>
+      <InfoNote>{mission.learningGoal}</InfoNote>
       <p className="scenario">{mission.scenario}</p>
       <p>{mission.briefing}</p>
 
@@ -51,7 +59,7 @@ export default function ClaimAuditMission({ mission }) {
                 </label>
                 {reviewed && (
                   <div className="claim-feedback">
-                    {reviewed.correct ? "✅" : "❌"}{" "}
+                    {reviewed.correct ? <IconCheck /> : <IconX />}{" "}
                     {reviewed.supported ? "Supported claim." : "Unsupported claim."}{" "}
                     {reviewed.explanation}
                   </div>
@@ -69,7 +77,7 @@ export default function ClaimAuditMission({ mission }) {
       ) : (
         <>
           <div className="score-summary">
-            Score: <strong>{result.points}</strong> / {result.maxPoints}
+            Score: <strong><AnimatedNumber value={result.points} /></strong> / {result.maxPoints}
           </div>
           <div className="mission-actions">
             {result.points < result.maxPoints && (

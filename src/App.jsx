@@ -5,6 +5,7 @@ import ProfileSetup from "./components/ProfileSetup";
 import MissionHub from "./components/MissionHub";
 import MissionPlayer from "./components/MissionPlayer";
 import Certificate from "./components/Certificate";
+import WhyPromptingMatters from "./components/WhyPromptingMatters";
 import Snowfall from "./components/Snowfall";
 import Aurora from "./components/Aurora";
 import "./App.css";
@@ -32,6 +33,8 @@ function Screen() {
       return <MissionPlayer />;
     case "certificate":
       return <Certificate />;
+    case "why":
+      return <WhyPromptingMatters />;
     case "home":
     default:
       return <Home />;

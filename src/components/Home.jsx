@@ -1,15 +1,45 @@
+import { useEffect, useMemo, useState } from "react";
 import { useGame } from "../context/GameContext";
 import { BUILTIN_PACKS } from "../packs/loadPack";
+import { scoreMission } from "../engine/scoring";
 import Logo from "./Logo";
-import { TrackIcon } from "./icons";
+import { TrackIcon, IconCheck, IconCircle } from "./icons";
+import Celebration from "./Celebration";
+
+const DEMO_MISSION = BUILTIN_PACKS.find((p) => p.packId === "kids").missions.find(
+  (m) => m.id === "birthday-party"
+);
+const DEMO_BEFORE_PROMPT = "Help me plan a birthday party.";
+const DEMO_AFTER_PROMPT =
+  "Help me plan my daughter's birthday party for 12 friends and family, with a $150 budget, this Saturday, in our backyard, no nuts allowed for allergies, and give me a checklist.";
 
 export default function Home() {
   const { selectPack, setScreen } = useGame();
+  const [demoActive, setDemoActive] = useState(false);
+
+  const demoBefore = useMemo(() => scoreMission(DEMO_MISSION, DEMO_BEFORE_PROMPT), []);
+  const demoAfter = useMemo(() => scoreMission(DEMO_MISSION, DEMO_AFTER_PROMPT), []);
 
   function chooseTrack(pack) {
     selectPack(pack);
     setScreen("profile");
   }
+
+  function playDemo() {
+    setDemoActive(false);
+    requestAnimationFrame(() => setDemoActive(true));
+  }
+
+  useEffect(() => {
+    const start = setTimeout(playDemo, 700);
+    return () => clearTimeout(start);
+  }, []);
+
+  useEffect(() => {
+    if (!demoActive) return;
+    const stop = setTimeout(() => setDemoActive(false), 2800);
+    return () => clearTimeout(stop);
+  }, [demoActive]);
 
   return (
     <div className="platform">
@@ -18,7 +48,7 @@ export default function Home() {
           <Logo size={56} />
         </div>
         <h1>Prompt Quest</h1>
-        <p className="tagline">Learn to work with AI — not just prompt it.</p>
+        <p className="tagline">An AI-powered game platform that teaches you to prompt.</p>
         <p className="hero-sub">
           Reading about good prompting doesn't make it stick — writing real prompts,
           watching them fail, and fixing them does. Prompt Quest teaches AI literacy the
@@ -73,6 +103,58 @@ export default function Home() {
           grading itself. Finish every mission in a track to earn badges and a
           certificate.
         </p>
+      </div>
+
+      <div className="showcase">
+        <Celebration active={demoActive} />
+        <h2>Watch a prompt go from weak to a perfect score</h2>
+        <p className="showcase-sub">
+          Real output from the actual scoring engine — same mission, same rules you'll play.
+        </p>
+        <div className="showcase-compare">
+          <div className="showcase-attempt">
+            <div className="showcase-attempt-label">First try</div>
+            <p className="showcase-prompt-text">&ldquo;{DEMO_BEFORE_PROMPT}&rdquo;</p>
+            <div className="score-summary showcase-score-weak">
+              Clarity score: <strong>{demoBefore.points}</strong> / {demoBefore.maxPoints}
+            </div>
+            <ul className="showcase-mini-list">
+              {DEMO_MISSION.requiredElements.map((el) => {
+                const hit = demoBefore.found.includes(el);
+                return (
+                  <li key={el.key} className={hit ? "hit" : "miss"}>
+                    {hit ? <IconCheck /> : <IconCircle />} {el.label}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <div className="showcase-arrow" aria-hidden="true">
+            →
+          </div>
+
+          <div className="showcase-attempt">
+            <div className="showcase-attempt-label">After fixing it</div>
+            <p className="showcase-prompt-text">&ldquo;{DEMO_AFTER_PROMPT}&rdquo;</p>
+            <div className="score-summary showcase-score-perfect">
+              Clarity score: <strong>{demoAfter.points}</strong> / {demoAfter.maxPoints}
+            </div>
+            <ul className="showcase-mini-list">
+              {DEMO_MISSION.requiredElements.map((el) => {
+                const hit = demoAfter.found.includes(el);
+                return (
+                  <li key={el.key} className={hit ? "hit" : "miss"}>
+                    {hit ? <IconCheck /> : <IconCircle />} {el.label}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+        <button className="secondary" onClick={playDemo}>
+          Replay the celebration
+        </button>
       </div>
 
       <h2 className="track-grid-heading">Pick a track to start</h2>
